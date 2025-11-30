@@ -20,11 +20,11 @@
 //? 2. Using Spread Operator ([...s])
 
 // function reverseWithSpread(s){
-//   return [...s].reverse().join('')                         
-// } 
+//   return [...s].reverse().join('')
+// }
 
- //[...s] splits string into array using iterators → handles Unicode better (e.g. emojis).
- 
+//[...s] splits string into array using iterators → handles Unicode better (e.g. emojis).
+
 // console.log(reverseWithSpread("hello"))  //olleh
 
 //?-----------------------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
 
 // function reverseRecursive(s){
 //   if(s === '') return '';
-  
+
 //   return reverseRecursive(s.slice(1)) + s[i];
 // }
 
@@ -106,15 +106,14 @@
 //     return original === reversed;
 
 // }
-    // This compares the original string 'str' (e.g., "madaM") 
-    // with the reversed lowercase string 'reversed' (e.g., "madam").
-    // "madaM" !== "madam"
+// This compares the original string 'str' (e.g., "madaM")
+// with the reversed lowercase string 'reversed' (e.g., "madam").
+// "madaM" !== "madam"
 
 // console.log(isPalindrome("madaM")) //true
 // console.log(isPalindrome("Hello")) //false
 
 //?-----------------------------------------------------------------------------------------------------------------------------
-
 
 //? Solution 2: Ignore non-alphanumeric characters & case (real-world)
 
@@ -129,8 +128,6 @@
 
 // console.log(isPalindrome("A man, a plan, a canal: Panama"))
 
-
-
 //? =================================================================================================
 
 //? Unicode-safe version (emojis, special chars)
@@ -141,10 +138,8 @@
 //     return arr.join('') === arr.reverse().join('')
 // }
 
-
 // console.log(isPalindrome("✌️⚠️💖")) //false
 // console.log(isPalindrome("💖💖💖")) //true
-
 
 //todo ========================================= Problem : Count occurrences of each character in a string. ========================================================
 
@@ -153,11 +148,10 @@
 // Output: { b: 1, a: 3, n: 2 }
 // This is a frequency counter problem — very common in interviews.
 
-
 //? Solution 1: Using a simple for...of loop
 
 // function countChar(str){
-    
+
 //     const acc = {};
 
 //     for ( const char of str){
@@ -173,8 +167,6 @@
 // Otherwise, set to 1.
 
 // console.log(countChar("ghsiudqdjjjjj")) // { g: 1, h: 1, s: 1, i: 1, u: 1, d: 2, q: 1, j: 5 }
-
-
 
 //? ===========================================================================================
 
@@ -194,11 +186,9 @@
 
 // console.log(countChar("Mjjjjhkiuio o")) //{ h: 2, j: 4, k: 1, i: 2, u: 1, o: 2 }
 
-
 //? =============================================================================================================
 
 //? Solution 3: Using Array.from() + reduce (Unicode safe)
-
 
 // function countChar(str){
 
@@ -210,8 +200,6 @@
 // }
 
 // console.log(countChar("👌😘💕💕"))
-
-
 
 //? ==============================================================================================================================
 
@@ -227,16 +215,11 @@
 
 // console.log(charCount("Hello World!!")); // { h:1, e:1, l:3, o:2, w:1, r:1, d:1 }
 
-
-
-
 //todo =================Problem :Find the first non-repeating character in a string.==================================
 // 👉 Problem:
 // Input: "swiss" → Output: "w" (since w is the first char that does not repeat)
 // Input: "aabbcc" → Output: null (no unique character)
 // This is another very common interview question because it checks your understanding of frequency counting + order preservation.
-
-
 
 //? Solution 1: Using Frequency Map (Two-pass solution)
 
@@ -244,7 +227,7 @@
 
 //     const freq = {};
 
-//     first pass count frequency 
+//     first pass count frequency
 
 //     for(let char of str ){
 //         freq[char] = (freq[char] || 0) + 1;
@@ -259,11 +242,8 @@
 //     return null
 // }
 
-
 // console.log(firstNonRepeatingChar("swiss")); // "w"
 // console.log(firstNonRepeatingChar("aabbcc")); // null
-
-
 
 //? ===============================================================================
 
@@ -271,7 +251,7 @@
 
 // function firstNonRepeatingChar(str){
 //     const freq = str.split('').reduce((acc,char)=>{
-//         acc[char] = (acc[char] || 0) + 1 
+//         acc[char] = (acc[char] || 0) + 1
 //         return acc
 //     }, {})
 //     return  str.split('').find((char) => freq[char] === 1) || null;
@@ -279,9 +259,7 @@
 
 // console.log(firstNonRepeatingChar('swiss')) // w
 
-
 //? ==========================================================================================================================================
-
 
 //todo ==================== Problem : Reverse words in a sentence. ================================================
 
@@ -289,7 +267,6 @@
 // Input: "I love JavaScript"
 // Output: "JavaScript love I"
 // ⚡ Key point → We are reversing words, not individual characters.
-
 
 //? Solution 1: Split → Reverse → Join (Most Common)
 
@@ -305,9 +282,7 @@
 // .reverse() → reverses order → ["JavaScript", "love", "I"].
 // .join(" ") → combine words with spaces.
 
-
 //? ==========================================================================================================================================
-
 
 //? Solution 2: Manual Loop (Without built-in reverse)
 
@@ -326,13 +301,11 @@
 
 //  console.log(reverseWords("I love JavaScript"))
 
-
 //todo ====================== Problem : Capitalize the first letter of each word. ==========================================
 // 👉 Problem:
 // Input: "hello world from javascript"
 // Output: "Hello World From Javascript"
 //⚡ Key point → Capitalize first letter of each word, keep the rest lowercase.
-
 
 //? ====== Solution 1: Using split + map ===========
 
@@ -342,17 +315,13 @@
 // }
 // console.log(CapitalizeFirstWord("i love frontend + webDevelopment")) // I Love Frontend + Webdevelopment
 
-
 // split(" ") → array of words: ["hello","world","from","javascript"].
 // map() → for each word:
 // charAt(0).toUpperCase() → first letter uppercase
 // slice(1).toLowerCase() → rest of word lowercase
 // join(" ") → join words into sentence.
 
-
 //? ==========================================================================================================================================
-
-
 
 //todo =============== Problem: Check if a string contains a substring (case-sensitive & insensitive)
 
@@ -360,7 +329,6 @@
 // Input: "Hello World", substring "world" → Output:
 // Case-sensitive → false
 // Case-insensitive → true
-
 
 //? Solution 1: Using includes() (ES6+)
 
@@ -374,9 +342,7 @@
 
 //? ==========================================================================================================================================
 
-
 //? Solution 2: Case-insensitive using toLowerCase()
-
 
 // function containsSubstringCI(sentence, substr){
 //   return sentence.toLowerCase().includes(substr.toLowerCase())
@@ -384,9 +350,7 @@
 
 // console.log(containsSubstringCI("Hello World", "world")); // true
 
-
 //? ==========================================================================================================================================
-
 
 //todo ================ Problem: Find the longest word in a string. ====================================================
 
@@ -394,7 +358,6 @@
 // Input: "I love JavaScript programming"
 // Output: "JavaScript"
 // ⚡ Key idea → Split sentence into words, then find the word with maximum length.
-
 
 //? Solution 1: Using split + loop
 
@@ -426,7 +389,6 @@
 
 //? ==========================================================================================================================================
 
-
 //? Solution 3: Using sort
 
 // function longestWord(sentence) {
@@ -440,15 +402,12 @@
 
 //? ==========================================================================================================================================
 
-
-
 //todo ===================== Problem: Count vowels and consonants in a string ================================
 
 // Problem:
 // Input: "Hello World"
 // Output: { vowels: 3, consonants: 7 }
 // ⚡ Key idea → Loop through string, check each character if it’s a vowel or consonant.
-
 
 // function countVowelsConsonants(str){
 //     const vowelList = 'aeiouAEIOU';
@@ -470,9 +429,7 @@
 
 // console.log(countVowelsConsonants("Hello World")); // { vowels: 3, consonants: 7 }
 
-
 //? ==========================================================================================================================================
-
 
 //? Solution 2: Using reduce
 
@@ -486,10 +443,122 @@
 //                 vowelList.includes(char) ? acc.vowels++ : acc.consonants++
 //             }
 //             return acc
-//         },{vowels:0, consonants:0} 
+//         },{vowels:0, consonants:0}
 //     )
 
 // }
 
-
 // console.log(countVowelsConsonants("Hello World"));
+
+// =========================================================================================================
+
+//todo Remove duplicate characters (preserve order)
+
+//? Using filter()
+
+// function removeDuplicates(str) {
+//   return [...str].filter((cha, i, arr) => arr.indexOf(cha) === i).join("");
+// }
+
+// console.log(removeDuplicates("programming"));  //progamin
+
+//? Using Set directly (loses order if not needed)
+
+// function removeDuplicates(str){
+//   return [...new Set(str)].join('')
+// }
+
+// console.log(removeDuplicates("programming"));  //progamin
+
+// =========================================================================================================
+
+//todo Question 2: Check if two strings are anagrams
+
+// 🧩 Problem
+// Check if both strings contain the same letters in any order (case-insensitive).
+
+// Input: "listen", "silent"
+// Output: true
+
+// function isAnagram(str1, str2) {
+//   const test1 = str1.toLowerCase().split("").sort().join("");
+//   const test2 = str2.toLowerCase().split("").sort().join("");
+
+//   return test1 === test2
+//     ? "Given string is Anagram"
+//     : "Given string is not Anagram";
+// }
+
+// console.log(isAnagram("listen", "silent")); //true  //"Given string is Anagram"
+
+// =========================================================================================================
+
+//todo Convert a query string into Object:
+// INPUT : "name=John&age=25"
+// OUTPUT : { name: "John", age: "25" }
+
+//? Using split() and reduce() (manual parsing)
+
+// function queryToObject(query) {
+//   return query.split("&").reduce((acc, pair) => {
+//     const [key, value] = pair.split("=");
+//     acc[key] = value;
+
+//     return acc;
+//   }, {});
+// }
+
+// console.log(queryToObject("name=John&age=25")); //{ name: 'John', age: '25' }
+
+//====================================================================================================================
+
+//todo find repeated or duplicate characters in a string
+
+//Given a string, return all characters that appear more than once.
+// Input:  "programming"
+// Output: ["r", "g", "m"]
+
+//? Using reduce() (Functional Programming style)
+
+// function findDuplicateChar(str) {
+
+//     const freq = [...str].reduce((acc, char)=>{
+//             acc[char] = (acc[char] || 0) + 1;
+//             return acc;
+//     }, {})
+
+//     const unique = Object.keys(freq).filter((char)=> freq[char] > 1);
+
+//     return{ freq, unique}
+
+// }
+
+// console.log(findDuplicateChar("programming"));  //["r", "g", "m"]  Note : Incase only return unique
+
+// {
+//   freq: { p: 1, r: 2, o: 1, g: 2, a: 1, m: 2, i: 1, n: 1 },
+//   unique: [ 'r', 'g', 'm' ]
+// }
+
+//====================================================================================================================
+
+//todo find repeated or duplicate word in a string/sentence.
+
+// function findDuplicateWords(sentence) {
+//   const words = sentence.toLowerCase().replace(".", "").split(/\s+/); //replace(/[^\w\s]/g, '') // remove punctuation
+
+//   const wordCount = words.reduce((acc, word) => {
+//     acc[word] = (acc[word] || 0) + 1;
+//     return acc;
+//   }, {});
+
+//   const duplicates = Object.keys(wordCount).filter(
+//     (word) => wordCount[word] > 1
+//   ); // Make sure You use [word] [bracket]
+//   return duplicates;
+// }
+
+// console.log(findDuplicateWords("This is a test. This test is simple.")); // ["this", "is", "test"]
+
+
+
